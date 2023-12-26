@@ -1,4 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.component {
+
+  h2 {
+    color: #fff;
+  }
+
+  .json {
+    background-color: #111;
+    font-family: 'Sometype Mono', monospace;
+    height: 60vh;
+    width: 60vw;
+    padding: 1rem 2rem 2rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 0.6rem 0 0 0.6rem;
+
+    .orange {
+      color: orangered;
+    }
+
+    .data {
+      margin-left: 1.5rem;
+
+      .white {
+        color: #fff;
+      }
+
+      .data-info {
+        margin-left: 1.5rem;
+
+        .blue {
+          color: #66ccff;
+          font-weight: bold;
+        }
+
+        .green {
+          color: green;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<div class="component">
+
+  <p>home works!</p>
+
+  @if (jobsParam) {
+    <h2>FAKE Job Listings</h2>
+    <div class="json">
+      <div class="jobs-list">
+        <p class="orange">{{ '[' }}</p>
+        @for (job of jobs; track job.jobID) {
+        <div class="data">
+          <p class="white">{{ '{' }}</p>
+          <div class="data-info">
+            <p class="white">"jobID":<span class="blue"> "{{ job.jobID }}"</span> </p>
+            <p class="white">"title":<span class="green"> "{{ job.title }}"</span></p>
+            <p class="white">"company":<span class="green"> "{{ job.company }}"</span></p>
+          </div>
+          <p class="white">{{ '}' }}{{','}}</p>
+        </div>
+        }
+        <p class="orange">{{ ']' }}</p>
+      </div>
+    </div>
+    }
+</div>

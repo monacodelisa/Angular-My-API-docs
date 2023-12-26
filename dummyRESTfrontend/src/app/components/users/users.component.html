@@ -1,0 +1,20 @@
+<div class="component">
+  <h2>Fake Users List</h2>
+  <div class="json">
+    <div class="users-list">
+      <p class="orange">{{ '[' }}</p>
+      @for (user of users; track user.id) {
+      <div class="data">
+        <p class="white">{{ '{' }}</p>
+        <div class="data-info">
+          <p class="white">"id":<span class="blue"> "{{ user.id }}"</span> </p>
+          <p class="white">"username":<span class="green"> "{{ user.username }}"</span></p>
+          <p class="white">"email":<span class="green"> "{{ user.email }}"</span> </p>
+        </div>
+        <p class="white">{{ '}' }}{{','}}</p>
+      </div>
+      }
+      <p class="orange">{{ ']' }}</p>
+    </div>
+  </div>
+</div>

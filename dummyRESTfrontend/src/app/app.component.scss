@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap');
+
 .container {
   display: flex;
   flex-direction: column;
@@ -43,13 +45,16 @@
 
     mat-sidenav {
       background-color: #333;
+
       mat-nav-list {
         padding: 0;
         width: 100%;
+
         p {
           color: #fff;
           margin: 1rem 1rem 0.5rem;
         }
+
         a {
           display: flex;
           color: #fff;
@@ -71,6 +76,12 @@
     }
 
     mat-sidenav-content {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      height: auto;
       padding: 2rem;
     }
   }
