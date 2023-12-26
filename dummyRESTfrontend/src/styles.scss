@@ -17,6 +17,7 @@ body {
   }
 
   .json {
+    position: relative;
     background-color: #111;
     font-family: 'Sometype Mono', monospace;
     height: 60vh;
@@ -25,6 +26,24 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     border-radius: 0.6rem 0 0 0.6rem;
+
+    &::before {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      content: "THIS DATA IS NOT REAL";
+      background-color: #111;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 2.5rem;
+      text-align: center;
+      height: 60vh;
+      width: 60vw;
+      padding: 1rem;
+      opacity: 0.1;
+      z-index: 2;
+    }
 
     p {
       margin-bottom: 0.3rem;
