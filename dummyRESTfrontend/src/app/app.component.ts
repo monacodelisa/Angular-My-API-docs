@@ -28,7 +28,6 @@ import { MatIconModule } from "@angular/material/icon";
 })
 export class AppComponent implements OnInit, OnDestroy {
 	title = "dummyRESTfrontend";
-  opened!: boolean;
 	mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
@@ -40,7 +39,6 @@ export class AppComponent implements OnInit, OnDestroy {
 	}
 
   ngOnInit(): void {
-    this.opened = true;
   }
 
 	ngOnDestroy(): void {
