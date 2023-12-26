@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,13 +11,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MainComponent implements OnInit {
   usersParam: string | null = "";
+  users: {} = {};
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.usersParam = params.get('users');
+      if (this.usersParam) {
+        this.http.get("https://monacodelisa-node-express.onrender.com/dummy-rest-api/users").subscribe(data => {
+          this.users = data;
+        })
+      }
     });
   }
-
 }
