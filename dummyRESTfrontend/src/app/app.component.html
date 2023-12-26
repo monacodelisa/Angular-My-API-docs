@@ -1,2 +1,25 @@
-<h1>My Dummy Rest API</h1>
-<router-outlet></router-outlet>
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="header">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a routerLink="home" routerLinkActive="active"><h1>My Dummy Rest API</h1></a>
+  </mat-toolbar>
+
+  <!-- <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0"> -->
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav [(opened)]="opened" [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <p>Resources:</p>
+        <a routerLink="users" routerLinkActive="active">Fake Users - 20</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <mat-toolbar class="footer">
+    <p>by <a href="https://monacodelisa.com" target="_blank" rel="noopener noreferrer">Esther White</a></p>
+  </mat-toolbar>
+</div>
