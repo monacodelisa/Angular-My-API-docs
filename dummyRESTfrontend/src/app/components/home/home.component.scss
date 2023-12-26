@@ -1,1 +1,58 @@
+// .home {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   color: #d3d3d3;
+//   width: 50vw;
 
+//   h2 {
+//     margin: 0.5rem 0 0;
+//   }
+
+//   p {
+//     font-size: 1rem;
+//     line-height: 1.5rem;
+//   }
+
+//   ul {
+
+//     li {
+//       font-size: 1rem;
+//       line-height: 1.5rem;
+//     }
+//   }
+// }
+
+.component {
+  .json {
+    height: 65vh;
+    padding: 1.7rem 2.2rem 2rem;
+
+    &::before {
+      display: none;
+    }
+
+    h2 {
+      font-family: 'Sometype Mono', monospace;
+      font-weight: bold;
+      margin: 0.5rem 0 0;
+    }
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+    }
+
+    ul {
+
+      li {
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
