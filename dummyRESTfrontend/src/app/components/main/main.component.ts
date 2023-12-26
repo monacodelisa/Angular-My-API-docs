@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-main',
@@ -11,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MainComponent implements OnInit {
   usersParam: string | null = "";
-  users: {} = {};
+  users: User[] = [];
 
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
@@ -19,7 +20,7 @@ export class MainComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.usersParam = params.get('users');
       if (this.usersParam) {
-        this.http.get("https://monacodelisa-node-express.onrender.com/dummy-rest-api/users").subscribe(data => {
+        this.http.get<User[]>("https://monacodelisa-node-express.onrender.com/dummy-rest-api/users").subscribe(data => {
           this.users = data;
         })
       }
