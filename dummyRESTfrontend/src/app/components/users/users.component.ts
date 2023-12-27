@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-users',
@@ -12,11 +12,11 @@ import { User } from '../../models/user';
 export class UsersComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.http.get<User[]>("https://monacodelisa-node-express.onrender.com/dummy-rest-api/users").subscribe(data => {
+    this.apiService.getUsers().subscribe(data => {
       this.users = data;
-    });
+    })
   }
 }
