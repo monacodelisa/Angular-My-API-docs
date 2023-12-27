@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Observable, map } from "rxjs";
 
 import { User } from "../models/user";
-import { Observable, map } from "rxjs";
+import { Job } from "../models/job";
 
 @Injectable({
 	providedIn: "root",
@@ -15,7 +16,11 @@ export class ApiService {
 
 	getUsers(): Observable<User[]> {
 		return this.http
-			.get<User[]>(`${this.apiUrl}/users`)
-			.pipe(map((data) => data));
+			.get<User[]>(`${this.apiUrl}/users`);
+	}
+
+	getJobs(): Observable<Job[]> {
+		return this.http
+			.get<Job[]>(`${this.apiUrl}/jobs`);
 	}
 }

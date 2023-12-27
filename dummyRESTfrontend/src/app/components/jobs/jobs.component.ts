@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../../services/api.service';
 import { Job } from '../../models/job';
 
 @Component({
@@ -12,12 +12,11 @@ import { Job } from '../../models/job';
 export class JobsComponent implements OnInit {
   jobs: Job[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.http.get<Job[]>("https://monacodelisa-node-express.onrender.com/dummy-rest-api/jobs").subscribe(data => {
+    this.apiService.getJobs().subscribe(data => {
       this.jobs = data;
     })
   }
-
 }
