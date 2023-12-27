@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ApiService } from '../../services/api.service';
 import { Dev } from '../../models/dev';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-devs',
@@ -13,10 +12,10 @@ import { HttpClient } from '@angular/common/http';
 export class DevsComponent implements OnInit {
   developers: Dev[] = [];
 
-  constructor (private http: HttpClient) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.http.get<Dev[]>("https://monacodelisa-node-express.onrender.com/dummy-rest-api/devs").subscribe(data => {
+    this.apiService.getDevs().subscribe(data => {
       this.developers = data;
     })
   }

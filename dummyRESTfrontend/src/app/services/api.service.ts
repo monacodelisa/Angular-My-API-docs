@@ -4,6 +4,8 @@ import { Observable, map } from "rxjs";
 
 import { User } from "../models/user";
 import { Job } from "../models/job";
+import { Dev } from "../models/dev";
+import { Product } from "../models/product";
 
 @Injectable({
 	providedIn: "root",
@@ -22,5 +24,15 @@ export class ApiService {
 	getJobs(): Observable<Job[]> {
 		return this.http
 			.get<Job[]>(`${this.apiUrl}/jobs`);
+	}
+
+	getDevs(): Observable<Dev[]> {
+		return this.http
+			.get<Dev[]>(`${this.apiUrl}/devs`);
+	}
+
+	getProducts(): Observable<Product[]> {
+		return this.http
+			.get<Product[]>(`${this.apiUrl}/products`);
 	}
 }

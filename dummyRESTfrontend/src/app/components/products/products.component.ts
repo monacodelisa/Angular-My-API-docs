@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../../services/api.service';
 import { Product } from '../../models/product';
 
 @Component({
@@ -12,10 +12,10 @@ import { Product } from '../../models/product';
 export class ProductsComponent implements OnInit{
   products: Product[] = [];
 
-  constructor (private http: HttpClient) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.http.get<Product[]>("https://monacodelisa-node-express.onrender.com/dummy-rest-api/products").subscribe(data => {
+    this.apiService.getProducts().subscribe(data => {
       this.products = data;
     })
   }
