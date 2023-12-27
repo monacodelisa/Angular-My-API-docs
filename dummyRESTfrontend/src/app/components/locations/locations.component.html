@@ -1,0 +1,28 @@
+<div class="component">
+  <h2>Locations List <a href="https://angular.dev/tutorials/first-app/http" target="_blank" rel="noopener noreferrer">from Angular.dev</a>, <a href="">[ Sample Display ]</a></h2>
+  <p class="lightgray">response:</p>
+  <div class="json">
+    <div class="locations-list">
+      <p class="orange">{{ '[' }}</p>
+      @for (location of locations; track location.id) {
+      <div class="data">
+        <p class="white">{{ '{' }}</p>
+        <div class="data-info">
+          <p class="white">"id":<span class="blue"> "{{ location.id }}"</span> </p>
+          <p class="white">"name":<span class="green"> "{{ location.name }}"</span></p>
+          <p class="white">"city":<span class="green"> "{{ location.city }}"</span></p>
+          <p class="white">"state":<span class="green"> "{{ location.state }}"</span></p>
+          <p class="white">"availableUnits":<span class="green"> "{{ location.availableUnits }}"</span></p>
+          <p class="white">"photo":<span class="green"> "{{ location.photo }}"</span></p>
+          <p class="white">"wifi":<span class="green"> "{{ location.wifi }}"</span></p>
+          <p class="white">"laundry":<span class="green"> "{{ location.laundry }}"</span></p>
+        </div>
+        <p class="white">{{ '}' }}{{','}}</p>
+      </div>
+      }
+      <p class="orange">{{ ']' }}</p>
+    </div>
+  </div>
+</div>
+
+
