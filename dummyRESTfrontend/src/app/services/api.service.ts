@@ -7,6 +7,7 @@ import { Job } from "../models/job";
 import { Dev } from "../models/dev";
 import { Product } from "../models/product";
 import { Location } from "../models/location";
+import { Movie } from "../models/movie";
 
 @Injectable({
 	providedIn: "root",
@@ -42,5 +43,10 @@ export class ApiService {
 	getLocations(): Observable<Location[]> {
 		return this.http
 			.get<Location[]>(`${this.apiUrl}/locations`);
+	}
+
+	getMovies(): Observable<Movie[]> {
+		return this.http
+			.get<Movie[]>(`${this.apiUrl}/movies`);
 	}
 }

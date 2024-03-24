@@ -5,6 +5,7 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { DevsComponent } from './components/devs/devs.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LocationsComponent } from './components/locations/locations.component';
+import { MoviesComponent } from './components/movies/movies.component';
 
 export const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
   {path: "devs", component: DevsComponent},
   {path: "products", component: ProductsComponent},
   {path: "locations", component: LocationsComponent},
+  {path: "movies", component: MoviesComponent},
   {path: "**", redirectTo: ""},
 ];

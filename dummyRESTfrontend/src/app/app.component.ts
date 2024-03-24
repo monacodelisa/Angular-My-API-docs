@@ -29,6 +29,14 @@ import { MatIconModule } from "@angular/material/icon";
 export class AppComponent implements OnInit, OnDestroy {
 	title = "dummyRESTfrontend";
 	mobileQuery: MediaQueryList;
+  navItems = [
+    {name: 'Fake Users - 20', route: 'users'},
+    {name: 'Fake Jobs - 20', route: 'jobs'},
+    {name: 'Developers - 21', route: 'devs'},
+    {name: 'Fake Products - 20', route: 'products'},
+    {name: 'Locations - 10', route: 'locations'},
+    {name: 'Movies - 10', route: 'movies'}
+  ]
 
   private _mobileQueryListener: () => void;
 

@@ -12,11 +12,9 @@
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
         <p>Endpoints:</p>
-        <a routerLink="users" routerLinkActive="active">Fake Users - 20</a>
-        <a routerLink="jobs" routerLinkActive="active">Fake Jobs - 20</a>
-        <a routerLink="devs" routerLinkActive="active">Developers - 21</a>
-        <a routerLink="products" routerLinkActive="active">Fake Products - 20</a>
-        <a routerLink="locations" routerLinkActive="active">Locations - 10</a>
+        @for (navItem of navItems; track navItem) {
+          <a routerLink="{{navItem.route}}" routerLinkActive="active">{{navItem.name}}</a>
+        }
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
