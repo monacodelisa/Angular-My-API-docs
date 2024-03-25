@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Location } from '../../models/location';
 import { ApiService } from '../../services/api.service';
+import { CopyEndpointUrlService } from '../../services/copy-endpoint-url.service';
 
 @Component({
   selector: 'app-locations',
@@ -11,12 +12,16 @@ import { ApiService } from '../../services/api.service';
 })
 export class LocationsComponent implements OnInit {
   locations: Location[] = [];
-
-  constructor (private apiService: ApiService) {}
+  private apiService = inject(ApiService);
+  private copyService = inject(CopyEndpointUrlService);
 
   ngOnInit(): void {
     this.apiService.getLocations().subscribe(data => {
       this.locations = data;
     })
+  }
+
+  copyUrl(): void {
+    this.copyService.copyText();
   }
 }

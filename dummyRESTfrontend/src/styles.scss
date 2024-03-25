@@ -27,6 +27,33 @@ body {
     }
   }
 
+  .endpoint {
+    display: flex;
+    gap: 0.4rem;
+
+    .url {
+      color: #876396;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        color: #ac7ebf;
+      }
+    }
+
+    .green {
+      color: green;
+    }
+
+    .copied-message {
+      display: none;
+    }
+
+    .copied-message.show {
+      display: block;
+    }
+  }
+
   .lightgray {
     color: lightgray;
   }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Job } from '../../models/job';
+import { CopyEndpointUrlService } from '../../services/copy-endpoint-url.service';
 
 @Component({
   selector: 'app-jobs',
@@ -11,12 +12,16 @@ import { Job } from '../../models/job';
 })
 export class JobsComponent implements OnInit {
   jobs: Job[] = [];
-
-  constructor(private apiService: ApiService) { }
+  private apiService = inject(ApiService);
+  private copyService = inject(CopyEndpointUrlService);
 
   ngOnInit(): void {
     this.apiService.getJobs().subscribe(data => {
       this.jobs = data;
     })
+  }
+
+  copyUrl(): void {
+    this.copyService.copyText();
   }
 }

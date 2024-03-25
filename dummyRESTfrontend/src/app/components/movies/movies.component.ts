@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Movie } from '../../models/movie';
+import { CopyEndpointUrlService } from '../../services/copy-endpoint-url.service';
 
 @Component({
   selector: 'app-movies',
@@ -12,6 +13,7 @@ import { Movie } from '../../models/movie';
 export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
   private apiService = inject(ApiService);
+  private copyService = inject(CopyEndpointUrlService);
 
   ngOnInit(): void {
     this.apiService.getMovies().subscribe(data => {
@@ -19,4 +21,7 @@ export class MoviesComponent implements OnInit {
     })
   }
 
+  copyUrl(): void {
+    this.copyService.copyText();
+  }
 }

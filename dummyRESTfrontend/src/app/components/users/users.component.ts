@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { ApiService } from '../../services/api.service';
+import { CopyEndpointUrlService } from '../../services/copy-endpoint-url.service';
 
 @Component({
   selector: 'app-users',
@@ -11,12 +12,17 @@ import { ApiService } from '../../services/api.service';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
-
-  constructor(private apiService: ApiService) { }
+  urlCopied: boolean = false;
+  private apiService = inject(ApiService);
+  private copyService = inject(CopyEndpointUrlService);
 
   ngOnInit(): void {
     this.apiService.getUsers().subscribe(data => {
       this.users = data;
     })
+  }
+
+  copyUrl(): void {
+    this.copyService.copyText();
   }
 }
