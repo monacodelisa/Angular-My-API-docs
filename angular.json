@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dummyRESTfrontend": {
+    "angular-my-api": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -63,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "dummyRESTfrontend:build:production"
+              "buildTarget": "angular-my-api:build:production"
             },
             "development": {
-              "buildTarget": "dummyRESTfrontend:build:development"
+              "buildTarget": "angular-my-api:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "dummyRESTfrontend:build"
+            "buildTarget": "angular-my-api:build"
           }
         },
         "test": {
